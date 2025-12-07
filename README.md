@@ -22,5 +22,30 @@ Instead of processing noise sequentially (Node A $\to$ Node B $\to$ Node C), thi
 2.  **Strength Summation:** It calculates the total active noise strength for each segment instantly.
 3.  **Result:** You get a perfectly calculated noise schedule that changes per-step with the performance cost of a single node.
 
-### The Sync (`JavaScript`)
-The extension uses an allowlist approach to monitor your queue. Whether you use the original **Manual Node** or the new **Preset Node**, the script intercepts the prompt execution and injects the KSampler's `seed` and `batch_size` directly into the node. This ensures your noise pattern always matches your generation seed.
+---
+
+# New: Dynamic Node (`ConditioningNoiseInjectionDynamic`)
+
+This procedurally generates a custom noise decay curve based on your specific requirements, eliminating the need to search for the perfect preset.
+
+### Key Logic: "Polish vs. Chaos"
+
+Instead of manually setting thresholds, you define the behavior using a **Chaos Factor**. This single slider controls two variables simultaneously to maintain mathematical coherence:
+
+1.  **Peak Strength (Vertical):** How loud is the initial noise blast?
+2.  **Duration (Horizontal):** How deep into the generation timeline does the noise persist?
+
+| Chaos Factor | Effect | Math Internals (Approx) |
+| :--- | :--- | :--- |
+| **0.0 - 0.2** | **Subtle Polish** | Peak ~3.0 | Lasts ~15% of steps |
+| **0.4 - 0.6** | **Balanced Shift** | Peak ~11.0 | Lasts ~35% of steps |
+| **0.8 - 1.0** | **Nuclear Chaos** | Peak ~20.0 | Lasts ~60% of steps |
+
+### Parameters
+
+*   **Steps:** Input your KSampler step count (e.g., `9` or `12`). This ensures the generated curve aligns perfectly with actual sampling steps.
+*   **Num Segments:** How many "simulated nodes" to chain.
+    *   *Low (2):* Creates a sharp "Step Down" effect.
+    *   *High (5+):* Creates a smooth gradient decay.
+*   **Chaos Factor:** The master control for intensity (see table above).
+*   **Strength Scale:** A final multiplier. Set to `0.0` to bypass the node completely.
