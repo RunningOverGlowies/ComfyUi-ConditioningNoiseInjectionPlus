@@ -16,7 +16,7 @@ This extension provides tools to inject controlled random noise into your Positi
 
 This node procedurally generates a custom decay curve based on your inputs. Enable the `show_graph` toggle to render a real-time plot of your noise. The graph updates as you adjust sliders, showing how the noise strength interacts with your generation steps (vertical grid lines represent steps). 
 
-The graph includes a green box indicating a 'Safe Zone' (Strength < 16.45, Duration < 37%). In my limited experimentation keeping your curve within this box generally ensures coherent results (this is entirely subject, your mileage may vary).
+The graph includes a green box indicating a 'Safe Zone' (Strength < 16.45, Duration < 37%). In my limited experimentation keeping your curve within this box generally ensures coherent results (this is entirely subjective, your mileage may vary).
 
 ### The "Chaos Factor"
 The **Chaos Factor** slider controls two variables simultaneously to maintain mathematical coherence:
