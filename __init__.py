@@ -277,14 +277,8 @@ class ConditioningNoiseInjectionPresets:
                         c_out.append([noisy_tensor, new_dict])
                     else:
                         c_out.append([processing_tensor, new_dict])
-
-        steps_out = 0
-        if "9-Step" in preset:
-            steps_out = 9
-        elif "12-Step" in preset:
-            steps_out = 12
-            
-        return (c_out, steps_out, )
+                        
+        return (c_out, )
 
 class ConditioningNoiseInjectionDynamic:
     
@@ -449,3 +443,4 @@ NODE_DISPLAY_NAME_MAPPINGS = {
 }
 
 WEB_DIRECTORY = "./js"
+
