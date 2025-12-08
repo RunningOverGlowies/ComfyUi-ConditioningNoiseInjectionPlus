@@ -2,11 +2,10 @@
 
 **Advanced Conditioning Noise Injection for ComfyUI.**
 
-I was having great success with chaining multiple [ConditioningNoiseInjection](https://github.com/BigStationW/ComfyUi-ConditioningNoiseInjection) nodes for seed variance so I quickly vibed these nodes to simulate complex chaining of noise injection. 
+I was having great success with chaining multiple [ConditioningNoiseInjection](https://github.com/BigStationW/ComfyUi-ConditioningNoiseInjection) nodes for seed variance so I quickly vibed these nodes to simulate complex chains of noise injection. 
 
 This extension provides tools to inject controlled random noise into your Positive or Negative conditioning. This creates variations in texture, composition, and seed variance without changing your core prompt. 
 
-Originally, achieving these gradients required chaining multiple nodes together manually. This suite introduces **Virtual Chaining**—simulating complex stacks of nodes instantly with high performance and zero graph clutter.
 
 ---
 
@@ -15,10 +14,10 @@ Originally, achieving these gradients required chaining multiple nodes together 
 
 <img width="286" height="323" alt="node2" src="https://github.com/user-attachments/assets/7d5a4d40-3808-42d5-ad9d-9289f24e4688" />
 
-Best for users who want total control. This node procedurally generates a custom decay curve based on your inputs. Enable the `show_graph` toggle to render a real-time plot of your noise schedule directly on the node. The graph updates instantly as you adjust sliders, showing exactly how the noise strength interacts with your generation steps (vertical grid lines represent steps).
+This node procedurally generates a custom decay curve based on your inputs. Enable the `show_graph` toggle to render a real-time plot of your noise. The graph updates as you adjust sliders, showing how the noise strength interacts with your generation steps (vertical grid lines represent steps). The graph includes a green box indicating a 'Safe Zone' (Strength < 16.45, Duration < 37%). In my limited experimentation keeping your curve within this box generally ensures coherent results (this is entirely subject, your mileage may vary).
 
 ### The "Chaos Factor"
-Instead of setting manual thresholds, you use the **Chaos Factor** slider. This controls two variables simultaneously to maintain mathematical coherence:
+The **Chaos Factor** slider controls two variables simultaneously to maintain mathematical coherence:
 1.  **Peak Strength:** How "loud" the initial noise blast is.
 2.  **Duration:** How deep into the generation timeline the noise persists.
 
