@@ -12,7 +12,7 @@ This extension provides tools to inject controlled random noise into your Positi
 ## 1. The Dynamic Node
 **`ConditioningNoiseInjectionDynamic`**
 
-<img width="362" height="390" alt="t" src="https://github.com/user-attachments/assets/4392224f-3baf-489f-a772-432d91c7bec8" />
+<img width="355" height="386" alt="t" src="https://github.com/user-attachments/assets/a9759aaa-5636-4666-9c5f-35cb1090a9f3" />
 
 This node procedurally generates a custom decay curve based on your inputs. Enable the `show_graph` toggle to render a real-time plot of your noise. The graph updates as you adjust sliders, showing how the noise strength interacts with your generation steps (vertical grid lines represent steps). 
 
