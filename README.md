@@ -12,7 +12,7 @@ This extension provides tools to inject controlled random noise into your Positi
 ## 1. The Dynamic Node
 **`ConditioningNoiseInjectionDynamic`**
 
-<img width="355" height="386" alt="t" src="https://github.com/user-attachments/assets/a9759aaa-5636-4666-9c5f-35cb1090a9f3" />
+<img width="355" height="386" alt="" src="https://github.com/user-attachments/assets/a9759aaa-5636-4666-9c5f-35cb1090a9f3" />
 
 This node procedurally generates a custom decay curve based on your inputs. Enable the `show_graph` toggle to render a real-time plot of your noise. The graph updates as you adjust sliders, showing how the noise strength interacts with your generation steps (vertical grid lines represent steps). 
 
@@ -42,12 +42,16 @@ The **Chaos Factor** slider controls two variables simultaneously to maintain ma
 ## 2. The Presets Node
 **`ConditioningNoiseInjectionPresets`**
 
-<img width="447" height="632" alt="node" src="https://github.com/user-attachments/assets/055aeafd-4be6-43f9-99c2-fb04a1ace708" />
+<img width="353" height="337" alt="t" src="https://github.com/user-attachments/assets/f345d00f-83b2-4d55-af45-ed21a34f01de" />
 
-Best for users who want curated, "tried-and-true" effects without tweaking math.
-
-*   **Curated Recipes:** Includes specific noise schedules tuned for **9-step** (Turbo/Lightning) and **12-step** workflows.
-*   **Vibe-Based Selection:** Presets range from "Subtle Polish" (texture enhancement) to "Nuclear Chaos" (major compositional hallucinations).
+Best for users who want curated effects without tweaking math. You can visualize exactly how a preset behaves before generating. Toggle `show_graph` to render the noise schedule.
 
 ---
 
+## Standalone Visualizer Tool
+
+<img width="813" height="507" alt="n" src="https://github.com/user-attachments/assets/33fa17cb-69fe-42e8-b6e2-f8a701fc8219" />
+
+Included in this repo is `Noise Logic Visualizer.html`. 
+
+You can open this file in any web browser to experiment with **Dynamic Node** parameters in real-time. It provides a larger interface than the node graph and allows you to copy generated recipes directly to your clipboard for use in `/js/presets.json`.
